@@ -9,17 +9,21 @@
 - Shah Tirth (Electrical Engineering, IIT Gandhinagar, 23110295@iitgn.ac.in)
 - Shail Bhargavkumar Joshi (Electrical Engineering, IIT Gandhinagar, 23110296@iitgn.ac.in) -->
 
+
 ## Abstract
 LightSync is an adaptive headlight system designed to automatically adjust the brightness of car headlights based on the distance and light intensity of oncoming vehicles. By using a combination of LDRs (Light Dependent Resistors), ultrasonic sensors, and Arduino Uno boards, the system aims to reduce glare and improve road safety during night-time driving.
 
+
 ## Motivation
 High-beam headlights are a major cause of temporary blindness and night-time accidents. Manual adjustment of headlight intensity is often neglected or inaccurate. LightSync automates this process, selectively dimming or switching off LED strips facing the direction of incoming vehicles, inspired by advanced automotive lighting systems but implemented with accessible components.
+
 
 ## Prototype
 <div align="center">
   <img src="images/prototype.png" alt="Prototype of LightSync" width="500"/>
   <br><em>Fig. 1: Prototype of the LightSync system</em>
 </div>
+
 
 ## Hardware Used
 - 2 × Arduino UNO boards
@@ -35,7 +39,7 @@ High-beam headlights are a major cause of temporary blindness and night-time acc
 LightSync integrates both hardware and software to deliver adaptive headlight control:
 
 - **Sensing:** Each fundamental unit consists of an LDR (for light intensity) and an ultrasonic sensor (for distance), both interfaced with an Arduino Uno. These sensors are strategically positioned to monitor multiple directions around the vehicle.
-- **Control Logic:** The Arduino continuously reads sensor values. When the measured distance is below a set threshold and incoming light intensity is high, the system dims or switches off the corresponding LED strip. This logic is implemented in `final_code.ino` using the Adafruit NeoPixel library for smooth LED transitions.
+- **Control Logic:** The Arduino continuously reads sensor values. When the measured distance is below a set threshold and incoming light intensity is high, the system dims or switches off the corresponding LED strip. This logic is implemented in `lightsync.ino` using the Adafruit NeoPixel library for smooth LED transitions.
 - **LED Arrangement:** Six WS2812B LED strips are arranged to simulate car headlights, with parallel connections for some strips. The strips are distributed across two Arduino boards for modularity and scalability.
 - **Assembly:** All components are mounted on a breadboard and a demonstration board, with careful wiring for power, ground, and signal lines. The use of 10 kΩ resistors with LDRs ensures accurate voltage division for light sensing.
 
@@ -46,8 +50,9 @@ LightSync integrates both hardware and software to deliver adaptive headlight co
 <br>
 This architecture allows LightSync to selectively and smoothly adjust headlight brightness in real time, minimizing glare for oncoming drivers while maintaining optimal road visibility.
 
+
 ## Code
-The Arduino code (`final_code.ino`) implements the logic for reading sensor values and controlling the LEDs. It uses the Adafruit NeoPixel library for smooth fading effects. Thresholds for distance and light intensity are calibrated for optimal performance.
+The Arduino code ([`lightsync.ino`](lightsync.ino)) implements the logic for reading sensor values and controlling the LEDs. It uses the Adafruit NeoPixel library for smooth fading effects. Thresholds for distance and light intensity are calibrated for optimal performance.
 
 
 ## Results
@@ -60,6 +65,7 @@ The Arduino code (`final_code.ino`) implements the logic for reading sensor valu
   <br><em>Fig. 3: Example showing selective dimming of LED strips</em>
 </div>
 
+
 ## References
 1. [Times of India: 74% vehicles using blinding headlights](https://timesofindia.indiatimes.com/city/chandigarh/74-vehicles-using-blinding-headlights-on-highways/articleshow/55424160.cms)
 2. [Why use a 10K resistor with an LDR? (Arduino Stack Exchange)](https://arduino.stackexchange.com/questions/16525/why-should-i-put-a-10k-resistor-with-an-ldr#:~:text=LDR%20have%20a%20changing%20resistance)
@@ -67,5 +73,10 @@ The Arduino code (`final_code.ino`) implements the logic for reading sensor valu
 4. [Distance measurement using Ultrasonic sensor and Arduino (GeeksforGeeks)](https://www.geeksforgeeks.org/distance-measurement-using-ultrasonic-sensor-and-arduino/)
 5. [Adafruit NeoPixel - Arduino Reference](https://www.arduino.cc/reference/en/libraries/adafruit-neopixel/)
 
+
 ## Acknowledgements
 We thank Prof. Arup Lal Chakraborty, lab TA Mohit Tewari, and the Electrical lab staff at IIT Gandhinagar for their support and guidance.
+
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
